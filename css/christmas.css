@@ -32,21 +32,21 @@
 }
 
 /* -------------------------------
-   JENKINS CHRISTMAS LOGO
+   JENKINS CHRISTMAS LOGO (CORRECT)
    ------------------------------- */
 
-/* Target ONLY Jenkins logo */
-#jenkins-name-icon img,
-#jenkins-home-link img {
+/* Replace Jenkins logo safely */
+#jenkins-head-icon {
   content: url("https://harsha117.github.io/jenkins-seasonal-christmas-theme/assets/jenkins-hat-logo.png");
-  height: 44px;        /* increased size */
+  height: 44px;
+  max-height: 44px;
   width: auto;
   object-fit: contain;
 }
 
-/* DO NOT affect right-side icons */
-#page-header svg {
-  height: auto !important;
+/* Ensure logo container aligns nicely */
+.jenkins-header .app-jenkins-logo {
+  align-items: center;
 }
 
 /* -------------------------------
@@ -100,7 +100,7 @@ body::after {
 }
 
 /* -------------------------------
-   SANTA – smooth loop
+   SANTA – smooth infinite loop
    ------------------------------- */
 
 #santa-sleigh {
