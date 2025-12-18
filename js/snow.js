@@ -30,15 +30,15 @@
 
     function createFlakes() {
       flakes = Array.from(
-        { length: Math.min(120, (w * h) / 16000) },
+        { length: Math.min(110, (w * h) / 18000) },
         () => {
-          const size = Math.random() * 3 + 2; // 2–5px flakes
+          const size = Math.random() * 3 + 2;
           return {
             x: Math.random() * w,
             y: Math.random() * h,
             r: size,
-            dx: Math.random() * 0.8 - 0.4,
-            dy: Math.random() * 1.8 + 0.8,
+            dx: Math.random() * 0.6 - 0.3,
+            dy: Math.random() * 1.6 + 0.8,
             o: Math.random() * 0.5 + 0.4
           };
         }
