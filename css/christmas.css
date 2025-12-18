@@ -5,7 +5,7 @@
 
 /* Background */
 body {
-  background: url("https://raw.githubusercontent.com/harsha117/jenkins-seasonal-christmas-theme/master/assets/christmas-background.jpg?v=2025.1")
+  background: url("../assets/christmas-background.jpg?v=2025.1")
               no-repeat center center fixed;
   background-size: cover;
 }
@@ -35,7 +35,7 @@ body {
   left: 38%;
   width: 65%;
   aspect-ratio: 1 / 1;
-  background: url("https://raw.githubusercontent.com/harsha117/jenkins-seasonal-christmas-theme/master/assets/santa-hat.png?v=2025.1")
+  background: url("../assets/santa-hat.png?v=2025.1")
               no-repeat center center;
   background-size: contain;
   pointer-events: none;
