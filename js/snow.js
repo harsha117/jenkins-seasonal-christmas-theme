@@ -1,62 +1,71 @@
 (function () {
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
+  function startSnow() {
+    if (!document.body) {
+      setTimeout(startSnow, 50);
+      return;
+    }
 
-  canvas.style.position = "fixed";
-  canvas.style.inset = "0";
-  canvas.style.pointerEvents = "none";
-  canvas.style.zIndex = "9999";
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-  document.body.appendChild(canvas);
+    canvas.style.position = "fixed";
+    canvas.style.inset = "0";
+    canvas.style.pointerEvents = "none";
+    canvas.style.zIndex = "9999";
 
-  let w, h, flakes = [];
+    document.body.appendChild(canvas);
 
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
+    let w, h, flakes = [];
 
-  function createFlakes() {
-    flakes = Array.from(
-      { length: Math.min(160, (w * h) / 16000) },
-      () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: Math.random() * 2.5 + 1,
-        dx: Math.random() * 0.6 - 0.3,
-        dy: Math.random() * 1.5 + 0.6,
-        o: Math.random() * 0.5 + 0.3
-      })
-    );
-  }
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
 
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
+    function createFlakes() {
+      flakes = Array.from(
+        { length: Math.min(160, (w * h) / 16000) },
+        () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 2.5 + 1,
+          dx: Math.random() * 0.6 - 0.3,
+          dy: Math.random() * 1.5 + 0.6,
+          o: Math.random() * 0.5 + 0.3
+        })
+      );
+    }
 
-    flakes.forEach(f => {
-      f.x += f.dx;
-      f.y += f.dy;
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
 
-      if (f.y > h) {
-        f.y = -10;
-        f.x = Math.random() * w;
-      }
+      flakes.forEach(f => {
+        f.x += f.dx;
+        f.y += f.dy;
 
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${f.o})`;
-      ctx.fill();
-    });
+        if (f.y > h) {
+          f.y = -10;
+          f.x = Math.random() * w;
+        }
 
-    requestAnimationFrame(draw);
-  }
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${f.o})`;
+        ctx.fill();
+      });
 
-  resize();
-  createFlakes();
-  draw();
+      requestAnimationFrame(draw);
+    }
 
-  window.addEventListener("resize", () => {
     resize();
     createFlakes();
-  });
+    draw();
+
+    window.addEventListener("resize", () => {
+      resize();
+      createFlakes();
+    });
+  }
+
+  startSnow();
 })();
