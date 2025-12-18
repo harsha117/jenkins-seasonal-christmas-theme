@@ -1,23 +1,19 @@
 /* ==================================
    Jenkins Christmas Theme – Clean
+   Header + Footer only
    ================================== */
 
-/* Remove any background image */
-body {
-  background: var(--background, inherit);
-}
-
 /* ----------------------------------
-   Header: Christmas accent
+   Header festive ribbon
    ---------------------------------- */
 
 #header {
   position: relative;
   background: linear-gradient(90deg, #7a0c0c, #0f4d2f);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
-/* Subtle festive glow line */
+/* Subtle golden accent under header */
 #header::after {
   content: "";
   position: absolute;
@@ -25,17 +21,47 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #ffd700, #ffffff, #ffd700);
-  opacity: 0.6;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.4),
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 215, 0, 0.4)
+  );
 }
 
 /* ----------------------------------
-   Footer: Christmas ribbon
+   Footer festive overlay (FULL width)
    ---------------------------------- */
 
+/* Remove default footer styling */
 #footer {
-  background: linear-gradient(90deg, #0f4d2f, #7a0c0c);
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  background: none;
+  box-shadow: none;
+}
+
+/* Bottom gradient overlay */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 140px; /* adjust height if needed */
+  pointer-events: none;
+  z-index: 1;
+
+  background: linear-gradient(
+    to top,
+    rgba(122, 12, 12, 0.9) 0%,
+    rgba(15, 77, 47, 0.7) 45%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Keep footer content above overlay */
+#page-footer {
+  position: relative;
+  z-index: 2;
 }
 
 /* ----------------------------------
