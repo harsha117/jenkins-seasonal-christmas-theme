@@ -22,7 +22,7 @@
     document.body.appendChild(canvas);
 
     let w, h, flakes = [];
-    const SNOW_GROUND_HEIGHT = 140; // must match CSS snow height
+    const SNOW_GROUND_HEIGHT = 110; // must match CSS
 
     function resize() {
       w = canvas.width = window.innerWidth;
@@ -53,7 +53,7 @@
         f.x += f.dx;
         f.y += f.dy;
 
-        /* ❄️ Stop snow at ground */
+        /* stop snow at ground */
         if (f.y > h - SNOW_GROUND_HEIGHT) {
           f.y = Math.random() * -20;
           f.x = Math.random() * w;

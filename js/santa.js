@@ -13,6 +13,11 @@
       "https://harsha117.github.io/jenkins-seasonal-christmas-theme/assets/santa-sleigh.gif";
 
     document.body.appendChild(santa);
+
+    /* Allow GIF animation to start before moving */
+    setTimeout(() => {
+      santa.classList.add("walking");
+    }, 600);
   }
 
   addSanta();
