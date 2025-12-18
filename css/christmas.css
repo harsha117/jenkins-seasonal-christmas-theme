@@ -39,11 +39,11 @@
 #jenkins-head-icon {
   content: url("https://harsha117.github.io/jenkins-seasonal-christmas-theme/assets/jenkins-hat-logo.png");
 
-  height: 56px;             /* increased a bit more */
+  height: 58px;             /* increased a bit more */
   width: auto;
   max-height: none;
 
-  transform: scale(1.35);  /* slightly larger than before */
+  transform: scale(1.4);  /* slightly larger than before */
   transform-origin: left center;
 
   margin-top: 3px;         /* keeps vertical centering clean */
