@@ -35,14 +35,19 @@
    JENKINS CHRISTMAS LOGO
    ------------------------------- */
 
-/* #page-header img,
-#page-header svg {
+/* Target ONLY Jenkins logo */
+#jenkins-name-icon img,
+#jenkins-home-link img {
   content: url("https://harsha117.github.io/jenkins-seasonal-christmas-theme/assets/jenkins-hat-logo.png");
-  height: 42px;
+  height: 44px;        /* increased size */
   width: auto;
   object-fit: contain;
-  margin-top: 2px;
-} */
+}
+
+/* DO NOT affect right-side icons */
+#page-header svg {
+  height: auto !important;
+}
 
 /* -------------------------------
    FOOTER – REALISTIC SNOW
