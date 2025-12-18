@@ -118,9 +118,9 @@ body::after {
 
 #christmas-tree {
   position: fixed;
-  bottom: 18px;
+  bottom: 16px;   /* slightly lower so trunk sits in snow */
   left: 35px;
-  width: 120px;
+  width: 95px;    /* reduced size */
   height: auto;
   pointer-events: none;
   z-index: 3;
