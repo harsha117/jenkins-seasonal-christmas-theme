@@ -1,111 +1,105 @@
 /* ==================================
    Jenkins Christmas Theme – FINAL
-   Header + Footer + Snow
+   Header fade + Snow ground + Santa
    ================================== */
 
-/* ----------------------------------
-   FESTIVE HEADER (ACTUALLY VISIBLE)
-   ---------------------------------- */
+/* -------------------------------
+   HEADER – soft festive transition
+   ------------------------------- */
 
 #page-header {
-  background: linear-gradient(
-    90deg,
-    #8b0000 0%,
-    #b22222 30%,
-    #0f6b3f 70%,
-    #0b4f2d 100%
-  ) !important;
-
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.6),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.15) !important;
+  position: relative;
+  background: transparent !important;
+  overflow: hidden;
 }
 
-/* Festive underline glow */
-#page-header::after {
+#page-header::before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 215, 0, 0.25),
-    rgba(255, 255, 255, 0.65),
-    rgba(255, 215, 0, 0.25)
-  );
+  inset: 0;
   pointer-events: none;
+  z-index: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(139, 0, 0, 0.85) 0%,
+    rgba(15, 107, 63, 0.55) 45%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
-/* ----------------------------------
-   FESTIVE FOOTER (FULL WIDTH, SOFT)
-   ---------------------------------- */
-
-/* Remove default footer styling */
-#footer {
-  background: none;
-  box-shadow: none;
+/* Ensure header content stays above gradient */
+#page-header > * {
+  position: relative;
+  z-index: 1;
 }
 
-/* Bottom festive gradient overlay */
+/* -------------------------------
+   FOOTER – snow accumulation
+   ------------------------------- */
+
 body::after {
   content: "";
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 160px;
+  height: 140px;
   pointer-events: none;
   z-index: 1;
 
   background: linear-gradient(
     to top,
-    rgba(122, 12, 12, 0.95) 0%,
-    rgba(15, 107, 63, 0.75) 45%,
-    rgba(0, 0, 0, 0) 100%
+    #ffffff 0%,
+    #f5f5f5 45%,
+    rgba(255, 255, 255, 0) 100%
   );
 }
 
-/* Ensure footer content is above overlay */
+/* Keep Jenkins footer content visible */
 #page-footer {
   position: relative;
+  z-index: 3;
+}
+
+/* -------------------------------
+   Santa sleigh animation
+   ------------------------------- */
+
+#santa-sleigh {
+  position: fixed;
+  bottom: 38px; /* sits on snow */
+  width: 420px;
+  height: auto;
+  pointer-events: none;
   z-index: 2;
+  animation: santa-move 32s linear infinite;
 }
 
-/* ----------------------------------
-   Buttons & links (festive accents)
-   ---------------------------------- */
+/* Right → Left → Left → Right loop */
+@keyframes santa-move {
+  0% {
+    right: -460px;
+    transform: scaleX(1);
+  }
 
-a {
-  color: #8b0000 !important;
-}
+  45% {
+    right: 100%;
+    transform: scaleX(1);
+  }
 
-a:hover {
-  color: #0f6b3f !important;
-}
+  50% {
+    left: -460px;
+    transform: scaleX(-1);
+  }
 
-button,
-.jenkins-button {
-  background-color: #8b0000 !important;
-  color: #ffffff !important;
-  border-radius: 6px;
-}
+  95% {
+    left: 100%;
+    transform: scaleX(-1);
+  }
 
-button:hover,
-.jenkins-button:hover {
-  background-color: #0f6b3f !important;
-}
-
-/* ----------------------------------
-   Job status glow (optional polish)
-   ---------------------------------- */
-
-img[src*="blue"],
-img[src*="green"] {
-  box-shadow: 0 0 6px rgba(0, 160, 0, 0.5);
-}
-
-img[src*="red"] {
-  box-shadow: 0 0 6px rgba(180, 0, 0, 0.5);
+  100% {
+    right: -460px;
+    transform: scaleX(1);
+  }
 }

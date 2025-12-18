@@ -30,7 +30,7 @@
 
     function createFlakes() {
       flakes = Array.from(
-        { length: Math.min(110, (w * h) / 18000) },
+        { length: Math.min(120, (w * h) / 16000) },
         () => {
           const size = Math.random() * 3 + 2;
           return {
