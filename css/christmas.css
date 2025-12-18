@@ -1,11 +1,12 @@
 /* ===============================
    Jenkins Christmas Theme
-   Safe • Non-intrusive • Production
+   Professional • Safe • Readable
    =============================== */
 
 /* Background */
 body {
-  background: url("../assets/background.jpg") no-repeat center center fixed;
+  background: url("https://raw.githubusercontent.com/harsha117/jenkins-seasonal-christmas-theme/master/assets/christmas-background.jpg?v=2025.1")
+              no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -30,11 +31,12 @@ body {
 #header .logo::after {
   content: "";
   position: absolute;
-  top: -14px;
-  left: 22px;
-  width: 42px;
-  height: 42px;
-  background: url("../assets/santa-hat.png") no-repeat center center;
+  top: -18%;
+  left: 38%;
+  width: 65%;
+  aspect-ratio: 1 / 1;
+  background: url("https://raw.githubusercontent.com/harsha117/jenkins-seasonal-christmas-theme/master/assets/santa-hat.png?v=2025.1")
+              no-repeat center center;
   background-size: contain;
   pointer-events: none;
 }
@@ -51,7 +53,7 @@ a:hover {
 button,
 .jenkins-button {
   background-color: #8b0000 !important;
-  color: #fff !important;
+  color: #ffffff !important;
   border-radius: 6px;
 }
 
@@ -60,7 +62,7 @@ button:hover,
   background-color: #0f4d2f !important;
 }
 
-/* Job status glow (subtle) */
+/* Job status glow (subtle, safe) */
 img[src*="blue"],
 img[src*="green"] {
   box-shadow: 0 0 6px rgba(0, 180, 0, 0.6);
