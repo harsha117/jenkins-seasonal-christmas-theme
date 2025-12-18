@@ -1,15 +1,21 @@
 (function () {
   function startSnow() {
     if (!document.body) {
-      setTimeout(startSnow, 50);
+      setTimeout(startSnow, 100);
       return;
     }
 
+    if (document.getElementById("jenkins-snow-canvas")) return;
+
     const canvas = document.createElement("canvas");
+    canvas.id = "jenkins-snow-canvas";
     const ctx = canvas.getContext("2d");
 
     canvas.style.position = "fixed";
-    canvas.style.inset = "0";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
     canvas.style.pointerEvents = "none";
     canvas.style.zIndex = "9999";
 
@@ -24,15 +30,18 @@
 
     function createFlakes() {
       flakes = Array.from(
-        { length: Math.min(160, (w * h) / 16000) },
-        () => ({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          r: Math.random() * 2.5 + 1,
-          dx: Math.random() * 0.6 - 0.3,
-          dy: Math.random() * 1.5 + 0.6,
-          o: Math.random() * 0.5 + 0.3
-        })
+        { length: Math.min(120, (w * h) / 16000) },
+        () => {
+          const size = Math.random() * 3 + 2; // ⭐ Bigger flakes (2–5px)
+          return {
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: size,
+            dx: Math.random() * 0.8 - 0.4,
+            dy: Math.random() * 1.8 + 0.8,
+            o: Math.random() * 0.5 + 0.4
+          };
+        }
       );
     }
 
@@ -43,7 +52,7 @@
         f.x += f.dx;
         f.y += f.dy;
 
-        if (f.y > h) {
+        if (f.y > h + 10) {
           f.y = -10;
           f.x = Math.random() * w;
         }
