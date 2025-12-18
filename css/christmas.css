@@ -32,19 +32,25 @@
 }
 
 /* -------------------------------
-   JENKINS CHRISTMAS LOGO (CORRECT)
+   JENKINS CHRISTMAS LOGO (BIGGER)
    ------------------------------- */
 
-/* Replace Jenkins logo safely */
+/* Target the real Jenkins logo */
 #jenkins-head-icon {
   content: url("https://harsha117.github.io/jenkins-seasonal-christmas-theme/assets/jenkins-hat-logo.png");
-  height: 44px;
-  max-height: 44px;
+
+  height: 52px;             /* base size */
   width: auto;
+  max-height: none;
+
+  transform: scale(1.25);  /* forces visible size increase */
+  transform-origin: left center;
+
+  margin-top: 2px;         /* align vertically */
   object-fit: contain;
 }
 
-/* Ensure logo container aligns nicely */
+/* Keep logo container aligned */
 .jenkins-header .app-jenkins-logo {
   align-items: center;
 }
