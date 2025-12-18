@@ -17,7 +17,7 @@
     canvas.style.width = "100%";
     canvas.style.height = "100%";
     canvas.style.pointerEvents = "none";
-    canvas.style.zIndex = "1"; /* behind everything */
+    canvas.style.zIndex = "1";
 
     document.body.appendChild(canvas);
 
@@ -30,15 +30,15 @@
 
     function createFlakes() {
       flakes = Array.from(
-        { length: Math.min(120, (w * h) / 16000) },
+        { length: Math.min(110, (w * h) / 17000) },
         () => {
-          const size = Math.random() * 3 + 2;
+          const size = Math.random() * 2 + 1.5;
           return {
             x: Math.random() * w,
             y: Math.random() * h,
             r: size,
-            dx: Math.random() * 0.6 - 0.3,
-            dy: Math.random() * 1.6 + 0.8,
+            dx: Math.random() * 0.5 - 0.25,
+            dy: Math.random() * 1.4 + 0.6,
             o: Math.random() * 0.5 + 0.4
           };
         }

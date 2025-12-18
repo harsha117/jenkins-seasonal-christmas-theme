@@ -1,10 +1,9 @@
 /* ==================================
    Jenkins Christmas Theme – FINAL
-   Header fade + Snow ground + Santa
    ================================== */
 
 /* -------------------------------
-   HEADER – soft festive transition
+   HEADER – subtle festive fade
    ------------------------------- */
 
 #page-header {
@@ -28,18 +27,15 @@
   );
 }
 
-/* Ensure header content stays above gradient */
 #page-header > * {
   position: relative;
   z-index: 1;
 }
 
 /* -------------------------------
-   FOOTER – snow accumulation
-   (behind footer buttons)
+   FOOTER – REALISTIC SNOW GROUND
    ------------------------------- */
 
-/* Snow ground */
 body::after {
   content: "";
   position: fixed;
@@ -50,15 +46,30 @@ body::after {
   pointer-events: none;
   z-index: 2;
 
-  background: linear-gradient(
-    to top,
-    #ffffff 0%,
-    #f7f7f7 55%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background:
+    radial-gradient(
+      circle at 18% 35%,
+      rgba(255,255,255,0.9) 0%,
+      rgba(255,255,255,0.6) 35%,
+      rgba(255,255,255,0) 70%
+    ),
+    radial-gradient(
+      circle at 65% 40%,
+      rgba(255,255,255,0.85) 0%,
+      rgba(255,255,255,0.5) 40%,
+      rgba(255,255,255,0) 75%
+    ),
+    linear-gradient(
+      to top,
+      #ffffff 0%,
+      #f5f5f5 50%,
+      rgba(255,255,255,0) 100%
+    );
+
+  filter: blur(0.3px);
 }
 
-/* Footer buttons ABOVE snow & santa */
+/* Footer content above snow */
 #page-footer {
   position: relative;
   z-index: 5;
@@ -66,44 +77,26 @@ body::after {
 }
 
 /* -------------------------------
-   SANTA – behind footer buttons
+   SANTA – continuous LEFT → RIGHT
    ------------------------------- */
 
 #santa-sleigh {
   position: fixed;
-  bottom: 55px;          /* sits on snow */
-  width: 260px;          /* controlled size */
+  bottom: 42px;
+  width: 240px;
   max-width: 60vw;
   height: auto;
   pointer-events: none;
-  z-index: 3;            /* above snow, below footer */
-  animation: santa-move 36s linear infinite;
+  z-index: 3;
+  animation: santa-walk 30s linear infinite;
 }
 
-/* Santa movement loop */
-@keyframes santa-move {
+@keyframes santa-walk {
   0% {
-    right: -300px;
-    transform: scaleX(1);
-  }
-
-  45% {
-    right: 100%;
-    transform: scaleX(1);
-  }
-
-  50% {
-    left: -300px;
-    transform: scaleX(-1);
-  }
-
-  95% {
-    left: 100%;
-    transform: scaleX(-1);
+    transform: translateX(-300px);
   }
 
   100% {
-    right: -300px;
-    transform: scaleX(1);
+    transform: translateX(calc(100vw + 300px));
   }
 }
