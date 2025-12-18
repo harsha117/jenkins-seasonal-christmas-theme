@@ -41,13 +41,13 @@ body::after {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 90px; /* reduced */
+  height: 90px;
   pointer-events: none;
   z-index: 2;
 
   background:
     radial-gradient(
-      ellipse 200px 45px at 18% 55%,
+      ellipse 220px 45px at 20% 55%,
       rgba(255,255,255,0.95) 0%,
       rgba(255,255,255,0.65) 45%,
       rgba(255,255,255,0) 80%
@@ -74,7 +74,7 @@ body::after {
   filter: blur(0.6px);
 }
 
-/* Footer UI stays above snow */
+/* Footer UI above snow */
 #page-footer {
   position: relative;
   z-index: 5;
@@ -82,12 +82,12 @@ body::after {
 }
 
 /* -------------------------------
-   SANTA – rides INSIDE the snow
+   SANTA – rides inside snow
    ------------------------------- */
 
 #santa-sleigh {
   position: fixed;
-  bottom: 22px; /* lowered */
+  bottom: 22px;
   width: 220px;
   max-width: 60vw;
   height: auto;
@@ -110,4 +110,18 @@ body::after {
   100% {
     transform: translateX(calc(100vw + 300px));
   }
+}
+
+/* -------------------------------
+   CHRISTMAS TREE – animated GIF
+   ------------------------------- */
+
+#christmas-tree {
+  position: fixed;
+  bottom: 18px;
+  left: 35px;
+  width: 120px;
+  height: auto;
+  pointer-events: none;
+  z-index: 3;
 }

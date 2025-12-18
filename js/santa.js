@@ -14,7 +14,6 @@
 
     document.body.appendChild(santa);
 
-    /* Let GIF animation start before movement */
     setTimeout(() => {
       santa.classList.add("walking");
     }, 600);

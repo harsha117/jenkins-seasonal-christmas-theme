@@ -22,7 +22,7 @@
     document.body.appendChild(canvas);
 
     let w, h, flakes = [];
-    const SNOW_GROUND_HEIGHT = 90; // MUST match CSS
+    const SNOW_GROUND_HEIGHT = 75;
 
     function resize() {
       w = canvas.width = window.innerWidth;
@@ -32,17 +32,14 @@
     function createFlakes() {
       flakes = Array.from(
         { length: Math.min(110, (w * h) / 18000) },
-        () => {
-          const size = Math.random() * 2 + 1.4;
-          return {
-            x: Math.random() * w,
-            y: Math.random() * (h - SNOW_GROUND_HEIGHT),
-            r: size,
-            dx: Math.random() * 0.45 - 0.22,
-            dy: Math.random() * 1.3 + 0.6,
-            o: Math.random() * 0.45 + 0.45
-          };
-        }
+        () => ({
+          x: Math.random() * w,
+          y: Math.random() * (h - SNOW_GROUND_HEIGHT),
+          r: Math.random() * 2 + 1.4,
+          dx: Math.random() * 0.45 - 0.22,
+          dy: Math.random() * 1.3 + 0.6,
+          o: Math.random() * 0.45 + 0.45
+        })
       );
     }
 
