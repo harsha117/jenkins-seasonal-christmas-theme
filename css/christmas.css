@@ -4,7 +4,7 @@
 
 /* Background image */
 body {
-  background: url("../assets/christmas-background.jpg?v=2025.6")
+  background: url("../assets/christmas-background.jpg?v=2025.7")
               no-repeat center center fixed;
   background-size: cover;
 }
@@ -23,28 +23,38 @@ body {
   left: 54px;
   width: 46px;
   height: 46px;
-  background: url("../assets/santa-hat.png?v=2025.6") no-repeat center center;
+  background: url("../assets/santa-hat.png?v=2025.7") no-repeat center center;
   background-size: contain;
   pointer-events: none;
 }
 
 /* ----------------------------------
    Subtle content backing (theme-aware)
+   Tuned to keep dark theme truly dark
    ---------------------------------- */
 
-/* Frosted effect */
 #page-body {
-  backdrop-filter: blur(2px);
+  /* lighter blur so UI doesn't look foggy */
+  backdrop-filter: blur(1px);
 }
 
-/* Light theme */
+/* Light theme: keep it readable but not "whitewashed" */
 body:not(.theme-dark) #page-body {
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(255, 255, 255, 0.55);
 }
 
-/* Dark theme */
+/* Dark theme: make it darker so it stays a real dark theme */
 body.theme-dark #page-body {
-  background-color: rgba(20, 20, 20, 0.65);
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+/* Optional: give the content area definition (looks premium) */
+body:not(.theme-dark) #page-body {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+body.theme-dark #page-body {
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 /* ----------------------------------
