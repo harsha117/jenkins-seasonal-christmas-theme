@@ -1,42 +1,36 @@
 /* ===============================
    Jenkins Christmas Theme
-   Professional • Safe • Readable
    =============================== */
 
 /* Background */
 body {
-  background: url("../assets/christmas-background.jpg?v=2025.2")
+  background: url("../assets/christmas-background.jpg?v=2025.3")
               no-repeat center center fixed;
   background-size: cover;
 }
 
-/* Main content readability */
+/* Main content panel (readability) */
 #main-panel {
   background-color: rgba(255, 255, 255, 0.92);
-  border-radius: 12px;
-  padding: 14px;
+  border-radius: 14px;
+  padding: 16px;
 }
 
-/* Header styling */
+/* Header base */
 #header {
+  position: relative;
   background: linear-gradient(90deg, #7a0c0c, #0f4d2f);
 }
 
-/* Jenkins logo container */
-#header .logo {
-  position: relative;
-}
-
-/* Santa hat overlay */
-#header .logo::after {
+/* Santa hat near Jenkins logo (robust approach) */
+#header::after {
   content: "";
   position: absolute;
-  top: -18%;
-  left: 38%;
-  width: 65%;
-  aspect-ratio: 1 / 1;
-  background: url("../assets/santa-hat.png?v=2025.2")
-              no-repeat center center;
+  top: 6px;
+  left: 54px;
+  width: 46px;
+  height: 46px;
+  background: url("../assets/santa-hat.png?v=2025.3") no-repeat center center;
   background-size: contain;
   pointer-events: none;
 }
@@ -62,7 +56,7 @@ button:hover,
   background-color: #0f4d2f !important;
 }
 
-/* Job status glow (subtle, safe) */
+/* Job status glow (subtle) */
 img[src*="blue"],
 img[src*="green"] {
   box-shadow: 0 0 6px rgba(0, 180, 0, 0.6);
