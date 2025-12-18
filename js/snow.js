@@ -32,7 +32,7 @@
       flakes = Array.from(
         { length: Math.min(120, (w * h) / 16000) },
         () => {
-          const size = Math.random() * 3 + 2; // ⭐ Bigger flakes (2–5px)
+          const size = Math.random() * 3 + 2; // 2–5px flakes
           return {
             x: Math.random() * w,
             y: Math.random() * h,
