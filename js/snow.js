@@ -17,14 +17,17 @@
   }
 
   function createFlakes() {
-    flakes = Array.from({ length: Math.min(180, (w * h) / 15000) }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 2.5 + 1,
-      dx: Math.random() * 0.6 - 0.3,
-      dy: Math.random() * 1.5 + 0.5,
-      o: Math.random() * 0.5 + 0.3
-    }));
+    flakes = Array.from(
+      { length: Math.min(160, (w * h) / 16000) },
+      () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2.5 + 1,
+        dx: Math.random() * 0.6 - 0.3,
+        dy: Math.random() * 1.5 + 0.6,
+        o: Math.random() * 0.5 + 0.3
+      })
+    );
   }
 
   function draw() {
