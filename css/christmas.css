@@ -1,36 +1,45 @@
 /* ==================================
-   Jenkins Christmas Theme – Clean
-   Header + Footer only
+   Jenkins Christmas Theme – FINAL
+   Header + Footer + Snow
    ================================== */
 
 /* ----------------------------------
-   Header festive ribbon
+   FESTIVE HEADER (CLEAR & VISIBLE)
    ---------------------------------- */
 
 #header {
   position: relative;
-  background: linear-gradient(90deg, #7a0c0c, #0f4d2f);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(
+    90deg,
+    #8b0000 0%,
+    #b22222 30%,
+    #0f6b3f 70%,
+    #0b4f2d 100%
+  ) !important;
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Subtle golden accent under header */
+/* Festive glow underline */
 #header::after {
   content: "";
   position: absolute;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(
     90deg,
-    rgba(255, 215, 0, 0.4),
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 215, 0, 0.4)
+    rgba(255, 215, 0, 0.25),
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 215, 0, 0.25)
   );
 }
 
 /* ----------------------------------
-   Footer festive overlay (FULL width)
+   FESTIVE FOOTER (FULL WIDTH, SOFT)
    ---------------------------------- */
 
 /* Remove default footer styling */
@@ -39,33 +48,33 @@
   box-shadow: none;
 }
 
-/* Bottom gradient overlay */
+/* Bottom festive gradient overlay */
 body::after {
   content: "";
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 140px; /* adjust height if needed */
+  height: 160px;
   pointer-events: none;
   z-index: 1;
 
   background: linear-gradient(
     to top,
-    rgba(122, 12, 12, 0.9) 0%,
-    rgba(15, 77, 47, 0.7) 45%,
+    rgba(122, 12, 12, 0.95) 0%,
+    rgba(15, 107, 63, 0.75) 45%,
     rgba(0, 0, 0, 0) 100%
   );
 }
 
-/* Keep footer content above overlay */
+/* Ensure footer content is above overlay */
 #page-footer {
   position: relative;
   z-index: 2;
 }
 
 /* ----------------------------------
-   Buttons & links (festive but subtle)
+   Buttons & links (festive accents)
    ---------------------------------- */
 
 a {
@@ -73,7 +82,7 @@ a {
 }
 
 a:hover {
-  color: #0f4d2f !important;
+  color: #0f6b3f !important;
 }
 
 button,
@@ -85,7 +94,7 @@ button,
 
 button:hover,
 .jenkins-button:hover {
-  background-color: #0f4d2f !important;
+  background-color: #0f6b3f !important;
 }
 
 /* ----------------------------------
