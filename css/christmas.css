@@ -4,11 +4,10 @@
    ================================== */
 
 /* ----------------------------------
-   FESTIVE HEADER (CLEAR & VISIBLE)
+   FESTIVE HEADER (ACTUALLY VISIBLE)
    ---------------------------------- */
 
-#header {
-  position: relative;
+#page-header {
   background: linear-gradient(
     90deg,
     #8b0000 0%,
@@ -18,12 +17,12 @@
   ) !important;
 
   box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.6),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Festive glow underline */
-#header::after {
+/* Festive underline glow */
+#page-header::after {
   content: "";
   position: absolute;
   left: 0;
@@ -36,6 +35,7 @@
     rgba(255, 255, 255, 0.65),
     rgba(255, 215, 0, 0.25)
   );
+  pointer-events: none;
 }
 
 /* ----------------------------------
