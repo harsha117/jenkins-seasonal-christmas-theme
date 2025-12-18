@@ -38,9 +38,10 @@
 #page-header img,
 #page-header svg {
   content: url("https://harsha117.github.io/jenkins-seasonal-christmas-theme/assets/jenkins-hat-logo.png");
-  height: 34px;
+  height: 42px;
   width: auto;
   object-fit: contain;
+  margin-top: 2px;
 }
 
 /* -------------------------------
