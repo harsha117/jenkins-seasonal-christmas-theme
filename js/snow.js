@@ -17,11 +17,12 @@
     canvas.style.width = "100%";
     canvas.style.height = "100%";
     canvas.style.pointerEvents = "none";
-    canvas.style.zIndex = "9999";
+    canvas.style.zIndex = "1";
 
     document.body.appendChild(canvas);
 
     let w, h, flakes = [];
+    const SNOW_GROUND_HEIGHT = 70;
 
     function resize() {
       w = canvas.width = window.innerWidth;
@@ -30,18 +31,15 @@
 
     function createFlakes() {
       flakes = Array.from(
-        { length: Math.min(120, (w * h) / 16000) },
-        () => {
-          const size = Math.random() * 3 + 2; // 2–5px flakes
-          return {
-            x: Math.random() * w,
-            y: Math.random() * h,
-            r: size,
-            dx: Math.random() * 0.8 - 0.4,
-            dy: Math.random() * 1.8 + 0.8,
-            o: Math.random() * 0.5 + 0.4
-          };
-        }
+        { length: Math.min(120, (w * h) / 17000) },
+        () => ({
+          x: Math.random() * w,
+          y: Math.random() * (h - SNOW_GROUND_HEIGHT),
+          r: Math.random() * 2 + 1.2,
+          dx: Math.random() * 0.4 - 0.2,
+          dy: Math.random() * 1.2 + 0.6,
+          o: Math.random() * 0.45 + 0.45
+        })
       );
     }
 
@@ -52,8 +50,8 @@
         f.x += f.dx;
         f.y += f.dy;
 
-        if (f.y > h + 10) {
-          f.y = -10;
+        if (f.y > h - SNOW_GROUND_HEIGHT) {
+          f.y = Math.random() * -25;
           f.x = Math.random() * w;
         }
 
